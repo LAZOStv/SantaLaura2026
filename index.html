@@ -6,7 +6,7 @@
 <title>Solo una cosa es necesaria · Retiro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,700..900&family=Bebas+Neue&family=Figtree:wght@400;600;700&family=JetBrains+Mono:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
     --noche:#2a0f0a;
@@ -103,8 +103,77 @@
   .grupo-wa{grid-column:1/-1;margin-top:8px;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.08em;color:var(--tinta-suave);text-align:center}
   .gracias{margin-top:26px;font-style:italic;color:var(--tinta)}
 
+  footer a{color:inherit;text-decoration:none}
+  footer a:hover{text-decoration:underline}
   footer{text-align:center;padding:26px 20px 34px;color:#d9b88a;font-size:14px}
   footer .bebas{font-size:22px;color:var(--oro);letter-spacing:.1em;display:block;margin-bottom:4px}
+
+  /* ---------- EN VIVO LAZOStv ---------- */
+  .lz{
+    --lz-fondo:#0b1029;--lz-texto:#eef0fb;--lz-suave:#aeb6d6;--lz-oro:#e6c15a;--lz-rojo:#ff4d5e;
+    font-family:'Figtree',system-ui,sans-serif;color:var(--lz-texto);
+    background:linear-gradient(180deg,var(--lz-fondo) 0,#0d1435 calc(100% - 140px),#eef0f5 calc(100% - 140px));
+    padding:64px 0 48px;
+  }
+  .lz a{color:inherit}
+  .lz-hero{display:grid;grid-template-columns:.95fr 1.15fr;gap:56px;align-items:center}
+  @media (max-width:880px){.lz-hero{grid-template-columns:1fr;gap:32px}}
+  .lz-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+    color:#ff8a94;background:rgba(255,77,94,.12);border:1px solid rgba(255,77,94,.45);border-radius:999px;padding:6px 14px;
+  }
+  .lz-pill i,.lz-rec i{width:8px;height:8px;border-radius:50%;background:var(--lz-rojo);display:block;animation:lz-parpadeo 1.2s infinite}
+  @keyframes lz-parpadeo{50%{opacity:.25}}
+  .lz h2{
+    font-family:'Archivo',sans-serif;font-weight:900;font-stretch:112%;text-transform:uppercase;
+    font-size:clamp(38px,5.4vw,60px);line-height:.98;letter-spacing:-.01em;margin:22px 0 22px;color:#fff;
+  }
+  .lz h2 span{display:block;color:var(--lz-oro);font-stretch:78%;font-weight:800}
+  .lz-hero p{color:var(--lz-suave);font-size:18px;line-height:1.65;max-width:470px}
+  .lz-botones{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .lz-btn{display:inline-flex;align-items:center;font-weight:700;font-size:16px;padding:14px 22px;border-radius:999px;text-decoration:none;transition:transform .15s,background .15s}
+  .lz-btn:hover{transform:translateY(-2px)}
+  .lz-btn.oro{background:var(--lz-oro);color:#1a1530}
+  .lz-btn.linea{border:1px solid rgba(255,255,255,.25);color:#fff}
+  .lz-btn.linea:hover{background:rgba(255,255,255,.06)}
+
+  .lz-player{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#141b3d;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08)}
+  .lz-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .lz-poster{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;color:#fff;text-align:left;
+    background:#141b3d center/cover no-repeat;font:inherit}
+  .lz-poster::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,40,.25),rgba(10,14,40,.1) 40%,rgba(10,14,40,.85))}
+  .lz-esq{position:absolute;width:26px;height:26px;border:2px solid rgba(255,255,255,.85)}
+  .lz-esq.a{top:18px;left:18px;border-right:0;border-bottom:0}
+  .lz-esq.b{top:18px;right:18px;border-left:0;border-bottom:0}
+  .lz-esq.c{bottom:18px;left:18px;border-right:0;border-top:0}
+  .lz-esq.d{bottom:18px;right:18px;border-left:0;border-top:0}
+  .lz-rec,.lz-tc{position:absolute;top:28px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;display:flex;align-items:center;gap:7px}
+  .lz-rec{left:34px}
+  .lz-tc{right:34px}
+  .lz-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;
+    background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    display:grid;place-items:center;transition:transform .2s,background .2s}
+  .lz-play svg{width:28px;height:28px;fill:#fff;margin-left:4px}
+  .lz-poster:hover .lz-play{transform:translate(-50%,-50%) scale(1.08);background:rgba(255,255,255,.28)}
+  .lz-pie{position:absolute;left:34px;right:34px;bottom:30px}
+  .lz-pie small{display:block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#ff8a94;margin-bottom:6px}
+  .lz-pie strong{font-size:clamp(17px,2vw,22px);font-weight:700}
+  @media (max-width:520px){.lz-play{width:56px;height:56px}.lz-play svg{width:22px;height:22px}.lz-esq{width:18px;height:18px}.lz-esq.a,.lz-esq.b{top:12px}.lz-esq.c,.lz-esq.d{bottom:12px}.lz-esq.a,.lz-esq.c{left:12px}.lz-esq.b,.lz-esq.d{right:12px}.lz-rec,.lz-tc{top:18px;font-size:11px}.lz-rec{left:22px}.lz-tc{right:22px}.lz-pie{left:22px;right:22px;bottom:18px}.lz-pie small{font-size:10px;margin-bottom:2px}.lz-pie strong{font-size:14px}}
+
+  .lz-stats{margin-top:64px;background:#121a3e;border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:30px 28px 34px;box-shadow:0 24px 50px rgba(10,14,40,.35)}
+  .lz-stats h3{text-align:center;font-family:'Figtree',sans-serif;font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--lz-oro);margin-bottom:22px}
+  .lz-fila{display:grid;grid-template-columns:repeat(4,1fr)}
+  .lz-stat{display:flex;align-items:center;gap:16px;padding:6px 18px}
+  .lz-stat + .lz-stat{border-left:1px solid rgba(255,255,255,.09)}
+  @media (max-width:880px){.lz-fila{grid-template-columns:1fr 1fr;row-gap:22px}.lz-stat:nth-child(3){border-left:0}}
+  @media (max-width:480px){.lz-fila{grid-template-columns:1fr}.lz-stat + .lz-stat{border-left:0}}
+  .lz-ico{position:relative;flex:none;width:56px;height:56px;border-radius:50%}
+  .lz-ico svg{position:absolute;left:2px;top:-3px;width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .lz-ico.azul{background:#1f9bdc}.lz-ico.morado{background:#8b5cf6}.lz-ico.amarillo{background:#e8b10f}.lz-ico.verde{background:#22a55a}
+  .lz-num{font-family:'Archivo',sans-serif;font-weight:800;font-size:28px;line-height:1.1;color:#fff}
+  .lz-lab{font-weight:600;font-size:15px;line-height:1.3}
+  .lz-det{font-size:13px;color:var(--lz-suave)}
 
   .flotante{position:fixed;right:16px;bottom:16px;z-index:5;opacity:0;pointer-events:none;transition:opacity .25s;box-shadow:0 5px 0 var(--vino),0 10px 30px rgba(0,0,0,.35)}
   .flotante.show{opacity:1;pointer-events:auto}
@@ -123,6 +192,16 @@
     dia3: "UxYdD-3IUZg"
   };
   const WHATSAPP = "573004011900";
+
+  // Señal en vivo de LAZOStv (sección final de la página).
+  // "reproductor" tiene prioridad; si lo dejas vacío se usa YouTube
+  // (ID del canal "UC…" o ID de un video/directo concreto).
+  const ENVIVO = {
+    reproductor: "https://player.kick.com/lazos-tv",
+    canalYouTube: "",
+    videoYouTube: "",
+    imagen: ""          // opcional: URL de la imagen de portada del reproductor
+  };
 </script>
 
 <header class="hero">
@@ -173,7 +252,7 @@
   <section class="donar" id="donar">
     <div class="wrap">
       <div class="caja">
-        <h2>Ayúdanos a sostener la misión evangelizadora de LAZOStv.com</h2>
+        <h2>Sostén la misión evangelizadora</h2>
         <p class="intro">Este retiro es gratuito. Si te ha hecho bien, puedes ayudarnos a que siga llegando a más corazones con una donación voluntaria, del valor que tú decidas.</p>
 
         <div class="metodos">
@@ -206,9 +285,57 @@
       </div>
     </div>
   </section>
+
+  <section class="lz" id="envivo">
+    <div class="wrap">
+      <div class="lz-hero">
+        <div>
+          <span class="lz-pill"><i></i>En vivo · 24 horas</span>
+          <h2>Ayúdanos a seguir <span>transmitiendo la fe</span></h2>
+          <p><a href="https://lazostv.com" target="_blank" rel="noopener">LAZOStv</a> es el canal de Lazos de Amor Mariano: predicación, oración y formación católica en vivo, todos los días, gratis para quien lo necesite. Lo sostienen personas como tú.</p>
+          <div class="lz-botones">
+            <a class="lz-btn oro" href="#donar">Quiero donar</a>
+            <a class="lz-btn linea" href="https://lazostv.com" target="_blank" rel="noopener">Conocer LAZOStv</a>
+          </div>
+        </div>
+
+        <div class="lz-player" id="lzPlayer">
+          <button class="lz-poster" id="lzPoster" type="button" aria-label="Reproducir la transmisión en vivo de LAZOStv">
+            <span class="lz-esq a"></span><span class="lz-esq b"></span><span class="lz-esq c"></span><span class="lz-esq d"></span>
+            <span class="lz-rec"><i></i>REC</span>
+            <span class="lz-tc" id="lzTc">00:00:00:00</span>
+            <span class="lz-play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
+            <span class="lz-pie"><small>Ahora en LAZOStv</small><strong>Transmisión 24 horas · Lazos de Amor Mariano</strong></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="lz-stats">
+        <h3>Tu ayuda ya está llegando muy lejos</h3>
+        <div class="lz-fila">
+          <div class="lz-stat">
+            <div class="lz-ico azul"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="16.5" cy="9" r="2.6"/><path d="M15.5 14.2c2.6-.3 4.5 1.3 5 4.8"/></svg></div>
+            <div><div class="lz-num">3.000.000+</div><div class="lz-lab">reproducciones</div><div class="lz-det">en nuestras plataformas</div></div>
+          </div>
+          <div class="lz-stat">
+            <div class="lz-ico morado"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></div>
+            <div><div class="lz-num">500+</div><div class="lz-lab">programas</div><div class="lz-det">producidos</div></div>
+          </div>
+          <div class="lz-stat">
+            <div class="lz-ico amarillo"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg></div>
+            <div><div class="lz-num">3</div><div class="lz-lab">medios: televisión, radio</div><div class="lz-det">y plataformas digitales</div></div>
+          </div>
+          <div class="lz-stat">
+            <div class="lz-ico verde"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg></div>
+            <div><div class="lz-num">30+</div><div class="lz-lab">países</div><div class="lz-det">alcanzados</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer><span class="bebas">Lazos TV</span>Consagrados al AMOR</footer>
+<footer><a class="bebas" href="https://lazostv.com" target="_blank" rel="noopener">LAZOStv</a>Consagrados al AMOR</footer>
 
 <a class="btn btn-fuego flotante" id="flotante" href="#donar">♥ Donar</a>
 
@@ -220,7 +347,33 @@
     a.href = 'https://www.youtube.com/watch?v=' + VIDEOS[a.dataset.yt]);
   document.querySelectorAll('[data-wa]').forEach(a =>
     a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(
-      'Hola, quiero hacer una donación para la misión de Lazos TV por ' + a.dataset.wa + '. ¿Me envían los datos?'));
+      'Hola, quiero hacer una donación para la misión de LAZOStv por ' + a.dataset.wa + '. ¿Me envían los datos?'));
+
+  // Reproductor en vivo de LAZOStv: muestra la portada y carga YouTube al hacer clic
+  const poster = document.getElementById('lzPoster');
+  const lzSrc = ENVIVO.reproductor
+    ? ENVIVO.reproductor + (ENVIVO.reproductor.includes('?') ? '&' : '?') + 'autoplay=true'
+    : ENVIVO.canalYouTube
+    ? 'https://www.youtube.com/embed/live_stream?channel=' + ENVIVO.canalYouTube + '&autoplay=1'
+    : ENVIVO.videoYouTube ? 'https://www.youtube.com/embed/' + ENVIVO.videoYouTube + '?autoplay=1&rel=0' : '';
+  const lzImg = ENVIVO.imagen || (ENVIVO.videoYouTube && 'https://i.ytimg.com/vi/' + ENVIVO.videoYouTube + '/hqdefault.jpg');
+  if (lzImg) poster.style.backgroundImage = 'url("' + lzImg + '")';
+  poster.onclick = () => {
+    if (!lzSrc) { window.open('https://lazostv.com', '_blank', 'noopener'); return; }
+    const f = document.createElement('iframe');
+    f.src = lzSrc; f.title = 'LAZOStv en vivo';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.allowFullscreen = true;
+    poster.replaceWith(f);
+  };
+  // Contador tipo cámara (hh:mm:ss:ff)
+  const tc = document.getElementById('lzTc'), t0 = Date.now();
+  const p2 = n => String(n).padStart(2, '0');
+  setInterval(() => {
+    if (!tc.isConnected) return;
+    const ms = Date.now() - t0, s = Math.floor(ms / 1000);
+    tc.textContent = p2(Math.floor(s / 3600)) + ':' + p2(Math.floor(s / 60) % 60) + ':' + p2(s % 60) + ':' + p2(Math.floor(ms / 40) % 25);
+  }, 40);
 
   // Botón flotante "Donar": visible mientras se ven los videos
   const flot = document.getElementById('flotante'), don = document.getElementById('donar');
